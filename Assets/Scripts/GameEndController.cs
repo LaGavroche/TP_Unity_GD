@@ -21,6 +21,10 @@ public class GameEndController : MonoBehaviour
     [Header("UI (facultatif, canvas en World Space)")]
     public TMP_Text timerText;
     public TMP_Text scoreText;
+    [Tooltip("Autres affichages du timer (ex : canvas flottant dans le ciel)")]
+    public TMP_Text[] extraTimerTexts;
+    [Tooltip("Autres affichages du score (ex : canvas flottant dans le ciel)")]
+    public TMP_Text[] extraScoreTexts;
 
     [Header("Sphère de fondu (sur la caméra du XR Origin)")]
     public Renderer fadeSphere;         // le MeshRenderer de ta sphère, avec le matériau TestMat
@@ -119,8 +123,16 @@ public class GameEndController : MonoBehaviour
 
     void UpdateUI()
     {
-        if (timerText != null) timerText.text = Mathf.CeilToInt(TimeLeft).ToString();
-        if (scoreText != null) scoreText.text = Score + " / " + targetScore;
+        string timer = Mathf.CeilToInt(TimeLeft).ToString();
+        string score = Score + " / " + targetScore;
+
+        if (timerText != null) timerText.text = timer;
+        if (scoreText != null) scoreText.text = score;
+
+        if (extraTimerTexts != null)
+            foreach (var t in extraTimerTexts) if (t != null) t.text = timer;
+        if (extraScoreTexts != null)
+            foreach (var t in extraScoreTexts) if (t != null) t.text = score;
     }
 
     // Coupe les déplacements du joueur (stick, téléportation...) : plus confortable en VR

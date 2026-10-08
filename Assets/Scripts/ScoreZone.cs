@@ -39,6 +39,8 @@ public class ScoreZone : MonoBehaviour
 
         if (!counted.Add(body)) return;   // déjà compté
 
-        gameEnd.AddScore(points);
+        // Valeur propre à l'objet (ScoreValue) ; sinon la valeur par défaut de la zone
+        var value = body.GetComponentInParent<ScoreValue>();
+        gameEnd.AddScore(value != null ? value.points : points);
     }
 }

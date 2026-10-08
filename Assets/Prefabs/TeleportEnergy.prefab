@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4923017778324346578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4432819611742530611}
+  - component: {fileID: 3737430163633423937}
+  - component: {fileID: 3737430163633423938}
+  m_Layer: 2
+  m_Name: TeleportEnergy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4432819611742530611
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4923017778324346578}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3737430163633423937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4923017778324346578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 053d7b35a8ded45df931afc96d279cf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TeleportEnergy
+  m_MaxCharges: 3
+  m_CostPerTeleport: 1
+  m_SecondsPerCharge: 1.5
+  m_RechargeDelay: 0.3
+  m_TeleportationProvider: {fileID: 0}
+  m_TeleportInteractors: []
+  m_Gauge: {fileID: 0}
+  m_GaugePrefab: {fileID: 5610366600826858811, guid: 64f175663c2ed41eba36d5868da6ab30, type: 3}
+  m_GaugeHand: 0
+  m_Haptics: {fileID: 0}
+  m_HapticAmplitude: 0.6
+  m_HapticDuration: 0.1
+  onTeleportDenied:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3737430163633423938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4923017778324346578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed409cd3ad3541c28c3e9c067f75317a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TeleportLineStyle
+  m_TeleportInteractors: []
+  m_Reticle: {fileID: 1100000000000000001, guid: 8ae2da06b67a41e7832bf6cb5b944317, type: 3}
+  m_BlockedReticle: {fileID: 1100000000000000001, guid: 0dff2e5b4c0b4210814f1e09336a10ca, type: 3}
+  m_LineWidth: 0.03
+  m_OverrideValidColor: 1
+  m_ValidColor: {r: 0.89, g: 0.66, b: 0.23, a: 1}
