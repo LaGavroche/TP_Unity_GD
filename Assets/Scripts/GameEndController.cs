@@ -43,6 +43,12 @@ public class GameEndController : MonoBehaviour
     public string menuScene = "Scene_GD_Group";
     public bool freezeLocomotion = true;   // coupe marche/téléportation pendant la fin
 
+    [Header("Musique d'ambiance (facultatif)")]
+    public AudioSource ambientSource;      // l'AudioSource de ta musique de niveau (PAS celle de cet objet)
+    [Range(0f, 1f)]
+    public float ambientDuckLevel = 0.1f;  // volume de l'ambiance à la fin, en proportion du volume actuel
+    public float duckTime = 0.5f;          // durée de la baisse (s)
+
     public int Score { get; private set; }
     public float TimeLeft { get; private set; }
     public bool Ended { get; private set; }
@@ -135,8 +141,26 @@ public class GameEndController : MonoBehaviour
         StartCoroutine(WinRoutine());
     }
 
+    // Baisse la musique d'ambiance pour que le son de fin (victoire ou défaite) se détache
+    IEnumerator DuckAmbient()
+    {
+        if (ambientSource == null) yield break;
+
+        float start = ambientSource.volume;
+        float target = start * ambientDuckLevel;
+        float t = 0f;
+        while (t < duckTime)
+        {
+            t += Time.deltaTime;
+            ambientSource.volume = Mathf.Lerp(start, target, t / duckTime);
+            yield return null;
+        }
+        ambientSource.volume = target;
+    }
+
     IEnumerator WinRoutine()
     {
+        StartCoroutine(DuckAmbient());
         FreezePlayer();
         if (winClip != null) audioSource.PlayOneShot(winClip);
         SpawnConfetti();
@@ -219,6 +243,7 @@ public class GameEndController : MonoBehaviour
 
     IEnumerator LoseRoutine()
     {
+        StartCoroutine(DuckAmbient());
         FreezePlayer();
         if (loseClip != null) audioSource.PlayOneShot(loseClip);
 

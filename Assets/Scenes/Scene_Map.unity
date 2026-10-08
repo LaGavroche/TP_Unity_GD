@@ -7142,23 +7142,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0eb6629a8698004ea576a30cb613dcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameEndController
-  timeLimit: 300
-  targetScore: 1
+  timeLimit: 4
+  targetScore: 500
   autoStart: 1
   timerText: {fileID: 1071018218}
   scoreText: {fileID: 733694649}
   fadeSphere: {fileID: 172202195}
-  winClip: {fileID: 0}
+  winClip: {fileID: 8300000, guid: e3daf69d5537b954da1521a73f9f0d0e, type: 3}
   confettiPrefab: {fileID: 0}
   confettiMaterial: {fileID: 0}
   winDuration: 8
   winFadeOut: 1.5
-  loseClip: {fileID: 0}
+  loseClip: {fileID: 8300000, guid: 908e165d00c3d9240867438115b7e3b9, type: 3}
   fadeDuration: 4
   loseMaxAlpha: 0.98
   loseExtraDelay: 1
   menuScene: Scene_GD_Group
   freezeLocomotion: 1
+  ambientSource: {fileID: 0}
+  ambientDuckLevel: 0.1
+  duckTime: 0.5
 --- !u!82 &1018801716
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7170,9 +7173,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: b78a7e885e47e5549a54a76a66edb59a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.675
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -9482,6 +9485,8 @@ MonoBehaviour:
   showDot: 0.55
   maxDistance: 0.9
   fadeSpeed: 8
+  alwaysVisible: 1
+  toggleKey: 94
 --- !u!225 &1351872120
 CanvasGroup:
   m_ObjectHideFlags: 0
